@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tu tworzymy todo i widzimy listę</title>
+    <style>
+        table, th, tr, td {border: 1px solid black;}
+    </style>
+</head>
+
+<h2>Lista książek</h2>
+
+<table>
+    <thead>
+    <th>Tytuł</th>
+    <th>Autor</th>
+    <th>Czy w domu?</th>
+    </thead>
+{% for post in posts %}
+    <tr>
+        <td><a href="/all/{{ loop.index }}">{{ post.title }}</a></td>
+        <td>{{ post.author }}</td>
+        <td>{{ post.is_home }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+
+<div>
+    <form method="POST" action="/">
+        {{ form.hidden_tag() }}
+        <input type="submit" value="Home">
+    </form>
+</div>
+
+    
+</body>
+</html>
